@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/05/2026 às 03:41
+-- Tempo de geração: 14/05/2026 às 03:27
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -61,9 +61,16 @@ CREATE TABLE `pecas` (
   `nome` varchar(300) NOT NULL,
   `marca` varchar(150) NOT NULL,
   `modelo` varchar(255) NOT NULL,
-  `decricao` varchar(255) NOT NULL,
+  `descricao` varchar(255) NOT NULL,
   `data_entrada` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pecas`
+--
+
+INSERT INTO `pecas` (`codigo`, `nome`, `marca`, `modelo`, `descricao`, `data_entrada`) VALUES
+(1, 'Pistão', 'Takao', 'Frontier 07/08/09', 'Pistão cabeçote', '2026-05-13');
 
 -- --------------------------------------------------------
 
@@ -155,7 +162,7 @@ ALTER TABLE `orden_servicos`
 -- AUTO_INCREMENT de tabela `pecas`
 --
 ALTER TABLE `pecas`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
