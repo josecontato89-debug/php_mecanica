@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/05/2026 às 03:27
+-- Tempo de geração: 15/05/2026 às 03:24
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -70,7 +70,8 @@ CREATE TABLE `pecas` (
 --
 
 INSERT INTO `pecas` (`codigo`, `nome`, `marca`, `modelo`, `descricao`, `data_entrada`) VALUES
-(1, 'Pistão', 'Takao', 'Frontier 07/08/09', 'Pistão cabeçote', '2026-05-13');
+(5, 'teqrtq', 'ertqert', 'qertq3r', 'qertqert', '2026-05-07'),
+(6, 'valvula', 'bosch', '254', 'cabeçote', '2026-05-06');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `funcao`, `genero`, `login`, `senha`) VALUES
-(1, 'Jose', '252525252', 'admin', 'm', 'admin', 'admin');
+(1, 'Jose', '252525252', 'admin', 'm', 'admin', 'admin'),
+(2, 'Platão', '8746518824', 'Filosofo', 'masculino', 'Big-Plato', 'Big-Plato'),
+(4, 'Aristoles', '9841981651351', 'Arrumar de encrenca', 'masculino', 'cavernoso', 'carvernoso');
 
 --
 -- Índices para tabelas despejadas
@@ -162,7 +165,7 @@ ALTER TABLE `orden_servicos`
 -- AUTO_INCREMENT de tabela `pecas`
 --
 ALTER TABLE `pecas`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
@@ -174,7 +177,7 @@ ALTER TABLE `servicos`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

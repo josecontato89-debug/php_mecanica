@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
                 exit();
         }
-    } catch (PDOExcepetion $e) {
+    } catch (PDOException $e) {
        echo "Erro:".$e->getMessage();
     }
 }
