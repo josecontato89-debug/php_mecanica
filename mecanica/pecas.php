@@ -24,20 +24,21 @@ $nome = $_SESSION['nome'];
 
     <style>
         .body {
-            background-color: gray
+            background-color: #DCDCDC;
         }
-
         .header {
             float: right;
         }
+        
+            
     </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
-<div class="container-fluid" style="background-color:#DCDCDC; text-align:center; position:relative;">
-    <img src="imagens/banner.png" alt="Logo">
+<div class="container-fluid" style="background-color:#DCDCDC; text-align:left; position:relative;">
+<img src="imagens/banner.png" width="50%" heigth="50%">
 
     <div class="header" style="position:absolute; top:10px; right:10px;">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
@@ -113,7 +114,7 @@ $nome = $_SESSION['nome'];
                             echo "<td>" . htmlspecialchars($item['data_entrada']) . "</td>";
                             echo "<td><a href='#' data-bs-toggle='modal' data-bs-target='#modalEditar' data-id='$codigo'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eraser-fill' viewBox='0 0 16 16'>
                             <path d='M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828zm.66 11.34L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293z'/>
-                          </svg></a> | <a href ='excluir_pecas.php?codigo=$codigo'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+                          </svg></a> | <a href ='excluir_pecas.php?codigo=$codigo'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill text-danger' viewBox='0 0 16 16'>
                             <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0'/>
                           </svg></a></td>";
                             echo "</tr>";

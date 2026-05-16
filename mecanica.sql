@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/05/2026 às 03:24
+-- Tempo de geração: 16/05/2026 às 03:14
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -24,30 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `ordens`
+-- Estrutura para tabela `ordem_servicos`
 --
 
-CREATE TABLE `ordens` (
+CREATE TABLE `ordem_servicos` (
   `id` int(11) NOT NULL,
-  `data_entrada` datetime NOT NULL,
-  `data_saida` datetime NOT NULL
+  `id_ordem` int(11) NOT NULL,
+  `tipo_servico` varchar(150) NOT NULL,
+  `pecas` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `orden_servicos`
+-- Estrutura para tabela `ordens`
 --
 
-CREATE TABLE `orden_servicos` (
+CREATE TABLE `ordens` (
   `id` int(11) NOT NULL,
-  `id_ordem` int(11) NOT NULL,
   `nome_cliente` varchar(180) NOT NULL,
   `cpf` varchar(20) NOT NULL,
   `veiculo` varchar(150) NOT NULL,
   `placa` varchar(10) NOT NULL,
-  `tipo_servico` varchar(150) NOT NULL,
-  `pecas` varchar(150) NOT NULL
+  `data_entrada` datetime NOT NULL,
+  `data_saida` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -86,6 +87,14 @@ CREATE TABLE `servicos` (
   `prioridade` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `servicos`
+--
+
+INSERT INTO `servicos` (`id`, `descricao`, `categoria`, `prioridade`) VALUES
+(1, 'carro não da partida ', 'eletrica', 'ALTA'),
+(2, 'Pistão cabeçote', 'mecanica', 'ALTA');
+
 -- --------------------------------------------------------
 
 --
@@ -116,15 +125,15 @@ INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `funcao`, `genero`, `login`, `senha
 --
 
 --
--- Índices de tabela `ordens`
+-- Índices de tabela `ordem_servicos`
 --
-ALTER TABLE `ordens`
+ALTER TABLE `ordem_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `orden_servicos`
+-- Índices de tabela `ordens`
 --
-ALTER TABLE `orden_servicos`
+ALTER TABLE `ordens`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -150,15 +159,15 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de tabela `ordens`
+-- AUTO_INCREMENT de tabela `ordem_servicos`
 --
-ALTER TABLE `ordens`
+ALTER TABLE `ordem_servicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `orden_servicos`
+-- AUTO_INCREMENT de tabela `ordens`
 --
-ALTER TABLE `orden_servicos`
+ALTER TABLE `ordens`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -171,7 +180,7 @@ ALTER TABLE `pecas`
 -- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

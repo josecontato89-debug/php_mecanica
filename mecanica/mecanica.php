@@ -66,10 +66,10 @@
                 <div class="col-md-6 mb-4">
                     <div class="card shadow border-2">
                         <div class=" card-header bg-gray border-bottom py-3">
-                            <spam class="texto-destaque">ORDENS DE SERVIÇO<spam/>
+                            <spam class="texto-destaque">ORDEM<spam/>
                         </div>
                         <div class ="card-body">
-                            Ordens de Serviço
+                            Ordem
                         </div>
                     </div>
                 </div>
