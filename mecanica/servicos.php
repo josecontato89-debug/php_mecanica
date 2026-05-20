@@ -7,6 +7,11 @@ if (!isset($_SESSION['nome'])) {
 }
 
 $nome = $_SESSION['nome'];
+$funcao = $_SESSION['funcao'];
+if($funcao != "mecanico"){
+    header('location: mecanica.php?status=erro&msg=Acesso Negado');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

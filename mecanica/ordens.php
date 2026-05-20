@@ -4,6 +4,12 @@
         header('Location: index.php?status=erro&msg=Acesso negado');
         exit;
     }
+    $nome = $_SESSION['nome'];
+    $funcao = $_SESSION['funcao'];
+if($funcao != "mecanico"){
+    header('location: mecanica.php?status=erro&msg=Acesso Negado');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

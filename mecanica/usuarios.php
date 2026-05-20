@@ -5,7 +5,11 @@ if (!isset($_SESSION['nome'])) {
     header('Location: index.php?status=erro&msg=Acesso Negado');
     exit();
 }
-
+$funcao = $_SESSION['funcao'];
+if($funcao != "admin"){
+    header('location: mecanica.php?status=erro&msg=Acesso Negado');
+    exit();
+}
 $nome = $_SESSION['nome'];
 ?>
 
@@ -52,9 +56,12 @@ $nome = $_SESSION['nome'];
 
 <br/>
         <nav>
-            <?php
+            <?php 
+
                 include 'menu.php';
             ?>
+            </br>
+            <?php echo $funcao; ?> 
         </nav>
 
 <!-- BOTÃO -->
@@ -223,6 +230,7 @@ $nome = $_SESSION['nome'];
                 </form>       
            </div>
         <div class="modal-footer">
+        
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">FECHAR</button>
        
       </div>
