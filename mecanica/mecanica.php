@@ -58,9 +58,59 @@
                         <div class=" card-header bg-gray border-bottom py-3">
                             <spam class="texto-destaque">ORDENS DE SERVIÇO<spam/>
                         </div>
-                        <div class ="card-body">
-                            Ordens de Serviço
-                        </div>
+                        <div class="card-body">
+    <?php 
+    // Array para traduzir o mês para português
+    $meses = [
+        1 => 'Janeiro', 2 => 'Fevereiro', 3 => 'Março', 4 => 'Abril',
+        5 => 'Maio', 6 => 'Junho', 7 => 'Julho', 8 => 'Agosto',
+        9 => 'Setembro', 10 => 'Outubro', 11 => 'Novembro', 12 => 'Dezembro'
+    ];
+    $mes_atual = $meses[(int)date('m')];
+    $ano_atual = date('Y');
+
+    // Exibe o mês e o ano corrente na tela
+    echo "<p class='text-muted'>Total de serviços por prioridade em: <strong>" . $mes_atual . " / " . $ano_atual . "</strong></p>";
+    
+    include 'conecta.php';
+    
+    $sql = "SELECT s.prioridade, COUNT(s.id) AS total_no_mes 
+            FROM ordem_servicos os 
+            INNER JOIN ordens o ON os.id_ordem = o.id 
+            INNER JOIN servicos s ON os.servico = s.id 
+            WHERE YEAR(o.data_saida) = YEAR(CURRENT_DATE()) 
+              AND MONTH(o.data_saida) = MONTH(CURRENT_DATE()) 
+            GROUP BY s.prioridade 
+            ORDER BY total_no_mes DESC";
+            
+    $consulta = $pdo->query($sql);
+    $listaordens = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    
+    if (count($listaordens) > 0) {
+        echo "<table class='table table-hover align-middle'>";
+        echo "<thead class='table-light'>
+                <tr>
+                    <th>PRIORIDADE</th>
+                    <th>TOTAL NO MÊS</th>
+                </tr>
+              </thead>";
+        
+        echo "<tbody>";
+        
+        foreach ($listaordens as $item) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($item['prioridade']) . "</td>";
+            echo "<td><span class='badge bg-primary fs-6'>" . htmlspecialchars($item['total_no_mes']) . "</span></td>";
+            echo "</tr>";
+        }
+        
+        echo "</tbody>";
+        echo "</table>";
+    } else {
+        echo "<p class='text-danger'><b>NÃO EXISTEM SERVIÇOS CADASTRADOS EM " . strtoupper($mes_atual) . "!</b></p>";
+    }
+    ?>
+</div>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
@@ -69,7 +119,9 @@
                             <spam class="texto-destaque">ORDEM<spam/>
                         </div>
                         <div class ="card-body">
-                            Ordem
+                        <?php
+                            include 'graf_prioridades.php';
+                            ?>
                         </div>
                     </div>
                 </div>

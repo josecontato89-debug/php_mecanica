@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/05/2026 às 01:32
+-- Tempo de geração: 23/05/2026 às 03:14
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -57,7 +57,20 @@ INSERT INTO `ordem_servicos` (`id`, `id_ordem`, `servico`, `pecas`) VALUES
 (16, 6, 0, 14),
 (17, 6, 0, 8),
 (18, 6, 0, 17),
-(19, 6, 0, 15);
+(19, 6, 0, 15),
+(20, 7, 3, 0),
+(21, 7, 6, 0),
+(22, 7, 11, 0),
+(23, 7, 0, 8),
+(24, 7, 0, 6),
+(25, 7, 0, 16),
+(26, 8, 5, 0),
+(27, 8, 9, 0),
+(28, 8, 12, 0),
+(29, 8, 0, 11),
+(30, 8, 0, 14),
+(31, 8, 0, 3),
+(32, 8, 0, 15);
 
 -- --------------------------------------------------------
 
@@ -82,9 +95,11 @@ CREATE TABLE `ordens` (
 
 INSERT INTO `ordens` (`id`, `nome_cliente`, `cpf`, `veiculo`, `placa`, `data_entrada`, `data_saida`, `status`) VALUES
 (3, 'Emerson Camargo', '88119653904', 'Monza SLE', 'EJT-0B42', '2026-05-16 03:15:54', '2026-05-19 19:26:18', 1),
-(4, 'Ana Julia', '12345678977', 'C3 Cinza', '12W34RT', '2026-05-18 19:25:35', '2026-05-18 14:25:41', 0),
-(5, 'jose', '478456141', 'citroen xsara picasso', '4545sds4545', '2026-05-20 00:26:12', '0000-00-00 00:00:00', 0),
-(6, 'Alison', '578941651', 'opala', '441dwsd41', '2026-05-20 02:53:13', '0000-00-00 00:00:00', 0);
+(4, 'Ana Julia', '12345678977', 'C3 Cinza', '12W34RT', '2026-05-18 19:25:35', '2026-05-22 19:58:13', 1),
+(5, 'jose', '478456141', 'citroen xsara picasso', '4545sds4545', '2026-05-20 00:26:12', '2026-05-22 19:58:15', 1),
+(6, 'Alison', '578941651', 'opala', '441dwsd41', '2026-05-20 02:53:13', '0000-00-00 00:00:00', 0),
+(7, 'edison', '85478416156', 'asdfasfdas', 'asdasdasda', '2026-05-23 00:58:08', '2026-05-22 19:58:18', 1),
+(8, 'sghfdgafd', '484654418', 'dfghadfg', 'adfgafdgad', '2026-05-23 00:59:19', '2026-05-22 19:59:20', 1);
 
 -- --------------------------------------------------------
 
@@ -220,13 +235,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `ordem_servicos`
 --
 ALTER TABLE `ordem_servicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `ordens`
 --
 ALTER TABLE `ordens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `pecas`
